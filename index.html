@@ -3,93 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulário de detalhes do cartão interativo</title>
+    <title>Cartão Interativo</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- Frente do cartão -->
-    <div id="visu_cartao_frent">
-      <div id="div_num_cartao">
-        <h2 id="num_cartao">0000 0000 0000 0000</h2>
-      </div>
-      <div id="dados_cartao">
-        <p id="nome_cartao">Jane Appleseed</p>
-        <p id="venci_cartao">00/00</p>
-      </div>
-    </div>
+    <main class="container">
+      <div class="cartao-visual">
+        <div class="cartao-frente">
+          <img src="images/bg-card-front.png" alt="Cartão Frente" />
+          <div class="detalhes-cartao">
+            <p class="numero-cartao">XXXX XXXX XXXX XXXX</p>
+            <div class="linha-baixo">
+              <span class="nome-cartao">FELICIA LEIRE</span>
+              <span class="vencimento-cartao">09/00</span>
+            </div>
+          </div>
+        </div>
 
-    <!-- Verso do cartão -->
-    <div id="visu_cartao_traz">
-      <p id="cvc_texto">000</p>
-    </div>
-
-    <!-- Formulário -->
-    <form action="#">
-      <div>
-        <label for="nome">Nome do Titular</label>
-        <input
-          type="text"
-          name="nome"
-          id="nome"
-          placeholder="por exemplo Jane Appleseed"
-          required
-        />
-      </div>
-
-      <div>
-        <label for="numero_cartao">Número do cartão</label>
-        <input
-          type="text"
-          name="numero_cartao"
-          id="numero_cartao"
-          placeholder="por exemplo 1234 5678 9123 0000"
-          pattern="\d{4} \d{4} \d{4} \d{4}"
-          required
-        />
-      </div>
-
-      <div>
-        <label for="exp-month">EXP. DATE (MM/YY)</label>
-        <div class="flex">
-          <input
-            type="text"
-            id="exp-month"
-            name="exp-month"
-            required
-            maxlength="2"
-            placeholder="MM"
-          />
-          <input
-            type="text"
-            id="exp-year"
-            name="exp-year"
-            required
-            maxlength="2"
-            placeholder="YY"
-          />
+        <div class="cartao-verso">
+          <img src="images/bg-card-back.png" alt="Cartão Verso" />
+          <span class="cvc-cartao">000</span>
         </div>
       </div>
 
-      <div>
-        <label for="cvc">CVC</label>
+      <form class="formulario-cartao">
+        <label for="nome">NOME DO TITULAR</label>
+        <input type="text" id="nome" placeholder="Felicia Leire" required />
+
+        <label for="numero">NÚMERO DO CARTÃO</label>
         <input
           type="text"
-          id="cvc"
-          name="cvc"
+          id="numero"
+          placeholder="1234 5678 9012 3456"
+          pattern="\d{4} \d{4} \d{4} \d{4}"
+          maxlength="19"
           required
-          maxlength="4"
-          pattern="[0-9]+"
-          placeholder="e.g. 123"
         />
-      </div>
 
-      <button type="submit">Confirmar</button>
-    </form>
+        <p class="erro">Formato errado, apenas números</p>
 
-    <!-- mensagem de confirmação (pode ser escondida e mostrar após o envio) -->
-    <div id="mensagem_concluido" style="display: none">
-      <h2>Obrigado!</h2>
-      <p>Adicionamos os dados do seu cartão</p>
-      <button>Continuar</button>
-    </div>
+        <div class="mes_ano_linha">
+          <div>
+            <label for="mes">DATA DE VALIDADE (MM/AA)</label>
+            <div class="mes_ano">
+              <input
+                type="text"
+                id="mes"
+                placeholder="MM"
+                maxlength="2"
+                required
+              />
+              <input
+                type="text"
+                id="ano"
+                placeholder="AA"
+                maxlength="2"
+                required
+              />
+            </div>
+            <p class="erro">Não pode ficar em branco</p>
+          </div>
+          <div>
+            <label for="cvc">CVC</label>
+            <input
+              type="text"
+              id="cvc"
+              placeholder="e.g. 123"
+              maxlength="3"
+              required
+            />
+            <p class="erro">Não pode ficar em branco</p>
+          </div>
+        </div>
+
+        <button type="submit">Confirm</button>
+      </form>
+    </main>
+    <script src="js/script.js"></script>
   </body>
 </html>
