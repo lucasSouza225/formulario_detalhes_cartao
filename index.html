@@ -1,84 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cartão Interativo</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <main class="container">
-      <div class="cartao-visual">
-        <div class="cartao-frente">
-          <img src="images/bg-card-front.png" alt="Cartão Frente" />
-          <div class="detalhes-cartao">
-            <p class="numero-cartao">XXXX XXXX XXXX XXXX</p>
-            <div class="linha-baixo">
-              <span class="nome-cartao">FELICIA LEIRE</span>
-              <span class="vencimento-cartao">09/00</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="cartao-verso">
-          <img src="images/bg-card-back.png" alt="Cartão Verso" />
-          <span class="cvc-cartao">000</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartão Interativo</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <main class="container">
+    <div class="cartao-visual">
+      <div class="cartao-frente">
+        <img src="images/bg-card-front.png" alt="Cartão Frente" />
+        <div class="detalhes-cartao">
+          <h2 id="numero-cartao">XXXX XXXX XXXX XXXX</h2>
+          <span id="nome-cartao">FELICIA LEIRE</span>
+          <span id="vencimento-cartao">09/00</span>
         </div>
       </div>
 
-      <form class="formulario-cartao">
-        <label for="nome">NOME DO TITULAR</label>
-        <input type="text" id="nome" placeholder="Felicia Leire" required />
+      <div class="cartao-verso">
+        <img src="images/bg-card-back.png" alt="Cartão Verso" />
+        <span id="cvc-cartao" class="cvc-cartao">000</span>
+      </div>
+    </div>
 
-        <label for="numero">NÚMERO DO CARTÃO</label>
-        <input
-          type="text"
-          id="numero"
-          placeholder="1234 5678 9012 3456"
-          pattern="\d{4} \d{4} \d{4} \d{4}"
-          maxlength="19"
-          required
-        />
 
-        <p class="erro">Formato errado, apenas números</p>
+    <form class="formulario-cartao">
+      <label for="nome">NOME DO TITULAR</label>
+      <input type="text" id="nome" placeholder="Felicia Leire" required />
 
-        <div class="mes_ano_linha">
-          <div>
-            <label for="mes">DATA DE VALIDADE (MM/AA)</label>
-            <div class="mes_ano">
-              <input
-                type="text"
-                id="mes"
-                placeholder="MM"
-                maxlength="2"
-                required
-              />
-              <input
-                type="text"
-                id="ano"
-                placeholder="AA"
-                maxlength="2"
-                required
-              />
-            </div>
-            <p class="erro">Não pode ficar em branco</p>
-          </div>
-          <div>
-            <label for="cvc">CVC</label>
-            <input
-              type="text"
-              id="cvc"
-              placeholder="e.g. 123"
-              maxlength="3"
-              required
-            />
-            <p class="erro">Não pode ficar em branco</p>
+      <label for="numero">NÚMERO DO CARTÃO</label>
+      <input type="text" id="numero" placeholder="1234 5678 9012 3456" pattern="\d{4} \d{4} \d{4} \d{4}" maxlength="16"
+        required />
+
+
+      <div class="mes_ano_linha">
+        <div>
+          <label for="mes">(MM/AA)</label>
+          <div class="mes_ano">
+            <input type="text" id="mes" placeholder="MM" maxlength="2" required />
+
+            <input type="text" id="ano" placeholder="AA" maxlength="2" required />
+
           </div>
         </div>
+      <div class="cvc">
+          <label for="cvc">CVC</label>
+          <input type="text" id="cvc" placeholder="e.g. 123" maxlength="3" required />
 
-        <button type="submit">Confirm</button>
-      </form>
-    </main>
-    <script src="js/script.js"></script>
-  </body>
+        </div>
+      </div>
+      <div class="erro" id="erro">
+Por favor, preencha todos os campos corretamente!*
+      </div>
+      <button type="button" onclick="confirmar()">Confirmar</button>
+    </form>
+    <div id="mensagem-sucesso">
+      <div class="icone-check">
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-check2-all"
+            viewBox="0 0 16 16">
+            <path
+              d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0" />
+            <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708" />
+          </svg>
+        </p>
+      </div>
+      <h2>OBRIGADO!</h2>
+      <p>Adicionamos os dados do seu cartão</p>
+      <button onclick="recarregar()">Continuar</button>
+    </div>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+
 </html>

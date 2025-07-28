@@ -1,10 +1,15 @@
 :root {
-  --cor01: #ffffff;
-  --cor02: #000;
-  --cor03: #333;
-  --cor04: #8e44ad;
-  --cor05: #492265;
-  --cor06: #e74c3c;
+    --cor01: #ffffff;
+    --cor02: #000;
+    --cor03: #333;
+    --cor04: #8e44ad;
+    --cor05: #492265;
+    --cor06: #e74c3c;
+}
+
+* {
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -22,9 +27,7 @@ body {
 
 .container {
     display: flex;
-    gap: 80px;
     max-width: 1200px;
-    padding: 40px;
 }
 
 .cartao-visual {
@@ -95,6 +98,7 @@ body {
     width: 350px;
     display: flex;
     flex-direction: column;
+    padding: 0 15px;
 }
 
 label {
@@ -150,8 +154,99 @@ button:hover {
     background: var(--cor04);
 }
 
-.erro {
+#erro {
+    display: none;
     color: var(--cor06);
-    font-size: 11px;
-    margin-top: 4px;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+#mensagem-sucesso {
+    display: none;
+    text-align: center;
+    width: 350px;
+    flex-direction: column;
+}
+
+.icone-check {
+    color: green;
+    font-weight: bolder;
+}
+
+
+@media (max-width: 650px) {
+  body {
+    background-image: url('../images/bg-main-mobile.png');
+    background-size: contain;
+    flex-direction: column;
+    padding: 20px 0;
+    height: auto;
+    color: var(--cor01);
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cartao-visual {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cartao-frente,
+  .cartao-verso {
+    width: 250px;
+    height: 170px;
+    margin: 10px 0;
+  }
+
+  .numero-cartao {
+    font-size: 16px;
+  }
+
+  .linha-baixo {
+    font-size: 10px;
+  }
+
+  .cvc-cartao {
+    top: 72px;
+    font-size: 14px;
+  }
+
+  .formulario-cartao {
+    width: 90%;
+    padding: 0 10px;
+  }
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mes_ano_linha {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .mes_ano #mes,
+  #ano {
+    width: 100%;
+  }
+
+  .cvc input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  #mensagem-sucesso {
+    width: 100%;
+  }
 }
