@@ -249,4 +249,8 @@ button:hover {
   #mensagem-sucesso {
     width: 100%;
   }
+
+  #mensagem-sucesso h2, p {
+    display: none;
+  }
 }

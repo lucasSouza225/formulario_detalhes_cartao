@@ -11,8 +11,12 @@ let erro = document.getElementById('erro')
   let valido = true
 
   if (nome === '' || numero.length < 16 || mes === '' || ano === '' || cvc.length < 3) {
-    window.alert('Por favor, preencha todos os campos corretamente!')
-    erro.style.display = 'block'
+    // aqui é a função de erro da biblioteca SweetAlert2
+    Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Peencha os dados corretamente!",
+});
     valido = false
   } else {
     erro.style.display = 'none'
@@ -32,6 +36,10 @@ let erro = document.getElementById('erro')
   document.getElementById('mensagem-sucesso').style.display = 'flex'
 }
 
+
+
 function recarregar() {
   location.reload()
 }
+ 
+

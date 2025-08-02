@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cartão Interativo</title>
   <link rel="stylesheet" href="css/style.css" />
+  <!-- o link para a biblioteca --> 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -46,14 +48,14 @@
 
           </div>
         </div>
-      <div class="cvc">
+        <div class="cvc">
           <label for="cvc">CVC</label>
           <input type="text" id="cvc" placeholder="e.g. 123" maxlength="3" required />
 
         </div>
       </div>
       <div class="erro" id="erro">
-Por favor, preencha todos os campos corretamente!*
+        Por favor, preencha todos os campos corretamente!*
       </div>
       <button type="button" onclick="confirmar()">Confirmar</button>
     </form>
