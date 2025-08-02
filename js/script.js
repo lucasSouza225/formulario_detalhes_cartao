@@ -24,7 +24,7 @@ let erro = document.getElementById('erro')
   let numeroFormatado = numero.replace(/(.{4})/g, '$1 ')
 
   document.getElementById('nome-cartao').innerHTML = nome
-  document.getElementById('numero-cartao').innerHTML = `<p>${numeroFormatado}</p>`
+  document.getElementById('numero-cartao').innerHTML = numeroFormatado
   document.getElementById('vencimento-cartao').innerHTML = `${mes}/${ano}`
   document.getElementById('cvc-cartao').innerHTML = cvc
 

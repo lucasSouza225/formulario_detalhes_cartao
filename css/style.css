@@ -203,8 +203,8 @@ button:hover {
     margin: 10px 0;
   }
 
-  .numero-cartao {
-    font-size: 16px;
+  #numero-cartao  {
+    font-size: 20px;
   }
 
   .linha-baixo {
